@@ -5,12 +5,12 @@ export async function getStats(period = "month", locale = "en") {
   return res?.data?.data || {};
 }
 
-export async function getPlayers({ period = "month", page = 1, per_page = 25 } = {}) {
+export async function getPlayers({ period = "all", page = 1, per_page = 25 } = {}) {
   const res = await api.get("/api/affiliate/players", { params: { period, page, per_page } });
   return res?.data?.data || { data: [], total: 0, current_page: 1, last_page: 1 };
 }
 
-export async function getSubAffiliators({ period = "month", page = 1, per_page = 25 } = {}) {
+export async function getSubAffiliators({ period = "all", page = 1, per_page = 25 } = {}) {
   const res = await api.get("/api/affiliate/sub-affiliators", { params: { period, page, per_page } });
   return res?.data?.data || { data: [], total: 0, current_page: 1, last_page: 1 };
 }

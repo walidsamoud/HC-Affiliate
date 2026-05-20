@@ -2,13 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import PeriodFilter from "../../../../components/dashboard/PeriodFilter";
 import { getPlayers } from "../../../../_services/dashboard";
 import { formatEur, formatDate } from "../../../../lib/format";
 
 export default function PlayersPage() {
   const t = useTranslations("dashboard.players");
-  const [period, setPeriod] = useState("month");
   const [page, setPage] = useState(1);
   const [result, setResult] = useState({ data: [], total: 0, last_page: 1 });
   const [loading, setLoading] = useState(true);
@@ -16,7 +14,7 @@ export default function PlayersPage() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    getPlayers({ period, page })
+    getPlayers({ period: "all", page })
       .then((data) => {
         if (!cancelled) setResult(data);
       })
@@ -26,11 +24,7 @@ export default function PlayersPage() {
     return () => {
       cancelled = true;
     };
-  }, [period, page]);
-
-  useEffect(() => {
-    setPage(1);
-  }, [period]);
+  }, [page]);
 
   return (
     <div className="cx-dash-page">
@@ -39,7 +33,6 @@ export default function PlayersPage() {
           <h1>{t("title")}</h1>
           <p className="cx-text-muted">{t("subtitle")}</p>
         </div>
-        <PeriodFilter value={period} onChange={setPeriod} />
       </div>
 
       <div className="cx-table-wrap">

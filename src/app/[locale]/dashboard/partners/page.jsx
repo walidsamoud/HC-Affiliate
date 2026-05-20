@@ -3,13 +3,11 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
-import PeriodFilter from "../../../../components/dashboard/PeriodFilter";
 import { getSubAffiliators, createSubAffiliator } from "../../../../_services/dashboard";
 import { formatEur, formatDate, apiErrorMessage } from "../../../../lib/format";
 
 export default function PartnersPage() {
   const t = useTranslations("dashboard.partners");
-  const [period, setPeriod] = useState("month");
   const [page, setPage] = useState(1);
   const [result, setResult] = useState({ data: [], total: 0, last_page: 1 });
   const [loading, setLoading] = useState(true);
@@ -20,18 +18,14 @@ export default function PartnersPage() {
 
   const load = () => {
     setLoading(true);
-    getSubAffiliators({ period, page })
+    getSubAffiliators({ period: "all", page })
       .then(setResult)
       .finally(() => setLoading(false));
   };
 
   useEffect(() => {
     load();
-  }, [period, page]);
-
-  useEffect(() => {
-    setPage(1);
-  }, [period]);
+  }, [page]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -57,12 +51,9 @@ export default function PartnersPage() {
           <h1>{t("title")}</h1>
           <p className="cx-text-muted">{t("subtitle")}</p>
         </div>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
-          <PeriodFilter value={period} onChange={setPeriod} />
-          <button type="button" className="cx-btn cx-btn--primary" onClick={() => setShowForm((v) => !v)}>
-            {t("create")}
-          </button>
-        </div>
+        <button type="button" className="cx-btn cx-btn--primary" onClick={() => setShowForm((v) => !v)}>
+          {t("create")}
+        </button>
       </div>
 
       {created && (
