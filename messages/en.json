@@ -1,0 +1,290 @@
+{
+  "brand": "CrownX Partners",
+  "tagline": "You don't need to gamble to earn with CrownXBet",
+  "subTagline": "Work with us your way and get paid monthly — no limits, all payment methods, all countries.",
+
+  "nav": {
+    "home": "Home",
+    "joinProgram": "Join the Program",
+    "login": "Partner Login",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "dashboard": "Dashboard",
+    "logout": "Log out"
+  },
+
+  "landing": {
+    "ctaJoin": "Become a Partner",
+    "ctaLogin": "Already a partner? Log in",
+    "intro": "CrownX Partners is the official affiliate program for the CrownXBet brand. Earn a recurring revenue share by referring new players and other affiliates — no gambling required.",
+    "howItWorksTitle": "How it works",
+    "howStep1Title": "Apply",
+    "howStep1Desc": "Submit your application in under 60 seconds. Our team reviews every request and approves serious applicants.",
+    "howStep2Title": "Promote",
+    "howStep2Desc": "Share your unique referral link or code anywhere — your social channels, content, streams, network, or in person.",
+    "howStep3Title": "Get Paid",
+    "howStep3Desc": "Earn 10% of every player's monthly net revenue (GGR) plus 10% on any sub-affiliator's earnings you bring in. Paid in EUR every month.",
+    "benefitsTitle": "Why join CrownX Partners",
+    "benefit1Title": "No Cap on Earnings",
+    "benefit1Desc": "There is no monthly ceiling. The bigger your network, the more you earn — forever.",
+    "benefit2Title": "Lifetime Revenue Share",
+    "benefit2Desc": "Once a player joins through your link, every euro they generate keeps producing income for you.",
+    "benefit3Title": "Global Reach",
+    "benefit3Desc": "All countries accepted, all payment methods supported, full multilingual support.",
+    "benefit4Title": "Two Earning Tracks",
+    "benefit4Desc": "Refer players AND refer other affiliators — earn from both networks simultaneously.",
+    "benefit5Title": "Dedicated Account Manager",
+    "benefit5Desc": "Our team contacts you on payment day to handle your withdrawal exactly how you want it.",
+    "benefit6Title": "Marketing Support",
+    "benefit6Desc": "Banners, copy, creative assets, ideas — everything you need to maximize conversions.",
+    "statsTitle": "What our partners earn",
+    "stat1": "10%",
+    "stat1Label": "On every referred player's GGR",
+    "stat2": "10%",
+    "stat2Label": "On every sub-affiliator's commission",
+    "stat3": "€0",
+    "stat3Label": "Minimum payout threshold",
+    "stat4": "30",
+    "stat4Label": "Days max payment cycle",
+    "ctaFinalTitle": "Ready to start earning?",
+    "ctaFinalDesc": "Join hundreds of partners already earning a stable monthly income with CrownX Partners."
+  },
+
+  "join": {
+    "title": "Join the Program",
+    "subtitle": "Apply to become an official CrownX Partner",
+    "noteImportant": "Important",
+    "noteVerify": "Make sure your email and phone number are correct — our team will use them to verify your application.",
+    "noteSecurity": "We will never ask you for sensitive information such as credit card details, PayPal credentials, or passwords.",
+    "name": "Full name",
+    "username": "Choose a username",
+    "email": "Email address",
+    "phone": "Phone number (with country code)",
+    "country": "Country",
+    "password": "Password",
+    "passwordConfirm": "Confirm password",
+    "referralCode": "Referral code (optional)",
+    "submit": "Submit Application",
+    "submitting": "Submitting…",
+    "haveAccount": "Already have an account?",
+    "loginHere": "Log in here",
+    "successTitle": "Application Received",
+    "successDesc": "Thank you. Our team reviews every application carefully and will contact you within 48 hours. You will receive a notification once your account is approved."
+  },
+
+  "login": {
+    "title": "Partner Login",
+    "subtitle": "Access your earnings dashboard",
+    "username": "Username or email",
+    "password": "Password",
+    "submit": "Log in",
+    "submitting": "Logging in…",
+    "noAccount": "Not a partner yet?",
+    "joinHere": "Join the program",
+    "forgotPassword": "Forgot password?",
+    "errorInvalid": "Invalid username or password.",
+    "errorPending": "Your account is pending approval.",
+    "errorDisabled": "Your account is not active. Contact support."
+  },
+
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Our team typically responds within a few hours.",
+    "name": "Your name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "subject": "Subject",
+    "message": "How can we help?",
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "successTitle": "Message sent",
+    "successDesc": "Thank you. We've received your message and will get back to you shortly.",
+    "telegramCta": "Or reach us instantly on Telegram"
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about the CrownX Partners program",
+    "categories": {
+      "general": "General",
+      "earnings": "Earnings & Commissions",
+      "payouts": "Payouts",
+      "marketing": "Marketing & Promotion",
+      "account": "Account & Security"
+    },
+    "q1": "What is CrownX Partners?",
+    "a1": "CrownX Partners is the official affiliate program for the CrownXBet brand. It's a B2B program for marketers, content creators, streamers, community managers, and anyone who can drive traffic to CrownXBet — no gambling required on your side.",
+    "q2": "Do I need to be a CrownXBet player to join?",
+    "a2": "No. The partner account is completely separate from a player account. You don't need to deposit, bet, or even create a player account. You earn purely by referring others.",
+    "q3": "How much can I earn?",
+    "a3": "You earn 10% of every referred player's monthly net revenue (GGR = total bets − total wins). On top of that, if you refer other partners, you earn 10% of their monthly commission. There is no cap.",
+    "q4": "What is GGR?",
+    "a4": "GGR (Gross Gaming Revenue) is the total amount players bet minus the total amount they win back, over a calendar month. This is the standard industry metric used to calculate affiliate commissions.",
+    "q5": "When do I get paid?",
+    "a5": "Payouts are processed monthly. At 23:59 on the last day of each month, the system automatically calculates your monthly earnings and creates a withdrawal entry. Our team then contacts you to arrange payment within the following few days.",
+    "q6": "How am I paid?",
+    "a6": "All payment methods are accepted: bank transfer, crypto (USDT, BTC, ETH and more), Skrill, PayPal, Western Union, even cash for local partners. Our team will contact you on payment day to confirm your preferred method.",
+    "q7": "What currency are commissions paid in?",
+    "a7": "Earnings are calculated and displayed in EUR (€). At the time of payment, you can request to be paid in the equivalent value in any major currency or crypto.",
+    "q8": "Is there a minimum payout?",
+    "a8": "No. Even if your monthly commission is just a few euros, a withdrawal entry is generated and our team will process it.",
+    "q9": "How do I refer players?",
+    "a9": "Once approved, your dashboard shows your unique referral code and link. Share the link anywhere — social media, your stream, your blog, in person — anyone who registers through it is tied to your account for life.",
+    "q10": "How do I refer other partners (sub-affiliators)?",
+    "a10": "Your dashboard also gives you a separate link for recruiting partners. When someone signs up through it, you automatically earn 10% of every euro they ever earn from their network.",
+    "q11": "Can I create accounts for my sub-partners directly?",
+    "a11": "Yes. From your dashboard you can create sub-partner accounts directly. We generate a temporary password and they will be required to change it on their first login.",
+    "q12": "Can I promote on TikTok / streams / Telegram channels?",
+    "a12": "Absolutely. Our \"Promotion Ideas\" page (inside the dashboard) is full of strategies for different platforms — TikTok content, Twitch streams, Telegram groups, Discord servers, real-world casinos, and more.",
+    "q13": "Are players from any country accepted?",
+    "a13": "Yes. CrownXBet accepts players from virtually every country. Always check local regulations on your end, but our side is global.",
+    "q14": "Is my application approval automatic?",
+    "a14": "No. We manually review every application to keep the program quality high. Most decisions are made within 24–48 hours.",
+    "q15": "What happens if a player I referred stops playing?",
+    "a15": "Nothing — you simply stop earning from that player while they're inactive. If they come back, your commissions resume automatically. There is no expiry on the relationship.",
+    "q16": "Can I track my conversions in real time?",
+    "a16": "Yes. Your dashboard shows live KPIs: signups, deposits, GGR, your commission, sub-partner earnings, and more — filterable by today, this week, this month, this year, or all time."
+  },
+
+  "footer": {
+    "copyright": "© {year} CrownXBet — All rights reserved",
+    "developedBy": "Developed by TBetSoft",
+    "links": {
+      "home": "Home",
+      "join": "Join Program",
+      "login": "Partner Login",
+      "contact": "Contact",
+      "faq": "FAQ",
+      "mainSite": "Main Casino"
+    }
+  },
+
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Your performance overview",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "referralCode": "Referral code",
+    "playerLink": "Player signup link",
+    "partnerLink": "Partner signup link",
+    "nextPayout": "Next payment",
+    "period": {
+      "all": "All time",
+      "year": "This year",
+      "month": "This month",
+      "week": "This week",
+      "day": "Today"
+    },
+    "kpi": {
+      "signups": "New signups",
+      "deposits": "Deposits (EUR)",
+      "withdrawals": "Withdrawals (EUR)",
+      "playersCommission": "Players commission",
+      "subCommission": "Sub-partners commission",
+      "totalCommission": "Total commission",
+      "paid": "Total paid",
+      "pending": "Pending"
+    },
+    "guide": {
+      "playersTitle": "Affiliate players",
+      "playersDesc": "Share your referral code or player link. You earn {percent}% of each referred player's monthly GGR (bets minus wins), converted to EUR.",
+      "partnersTitle": "Affiliate partners",
+      "partnersDesc": "Share the same code on the partner registration page. You earn {percent}% of each sub-partner's commission from their network."
+    },
+    "nav": {
+      "home": "Home",
+      "players": "Players",
+      "partners": "Sub-partners",
+      "withdrawals": "Withdrawals",
+      "ideas": "Promotion ideas",
+      "settings": "Change password",
+      "logout": "Log out",
+      "menu": "Menu"
+    },
+    "players": {
+      "title": "Affiliated players",
+      "subtitle": "Players who joined with your referral code",
+      "empty": "No players in this period yet.",
+      "username": "Player",
+      "joined": "Joined",
+      "deposits": "Deposits",
+      "withdrawals": "Withdrawals",
+      "ggr": "GGR",
+      "commission": "Your commission"
+    },
+    "partners": {
+      "title": "Sub-partners",
+      "subtitle": "Partners you recruited into the program",
+      "create": "Create sub-partner",
+      "createTitle": "New sub-partner account",
+      "submit": "Create account",
+      "created": "Sub-partner created",
+      "credentials": "Share these credentials (one-time password):",
+      "tempPassword": "Temporary password",
+      "referral": "Their referral code",
+      "empty": "No sub-partners yet.",
+      "name": "Name",
+      "username": "Username",
+      "email": "Email",
+      "phone": "Phone",
+      "status": "Status",
+      "players": "Players",
+      "revenue": "Their revenue",
+      "commission": "Your commission",
+      "joined": "Joined"
+    },
+    "withdrawals": {
+      "title": "Withdrawals",
+      "subtitle": "Your monthly payout history",
+      "totalPaid": "Total paid",
+      "totalPending": "Pending",
+      "nextPayout": "Next payment",
+      "paymentNote": "Our team will contact you on payment day to discuss how you would like to be paid. All payment methods are accepted.",
+      "empty": "No withdrawals yet.",
+      "date": "Date",
+      "period": "Period",
+      "amount": "Amount",
+      "status": "Status"
+    },
+    "ideas": {
+      "title": "Promotion ideas",
+      "subtitle": "Proven ways to grow your affiliate income",
+      "tiktok": {
+        "title": "TikTok & short video",
+        "body": "Post win highlights, bonus tips, and \"how to sign up\" clips with your link in bio. Use trending sounds and local language. Post daily — consistency beats one viral hit."
+      },
+      "stream": {
+        "title": "Streaming (Twitch, Kick, YouTube)",
+        "body": "Run a dedicated casino stream segment with your referral link in panel and chat commands. Offer viewers exclusive deposit bonuses when available. Engage live — answer questions about signup."
+      },
+      "telegram": {
+        "title": "Telegram & Discord",
+        "body": "Build a community channel with daily picks, promo codes, and your signup link pinned. Use bots for auto-replies with your ref link. Cross-post to WhatsApp groups carefully (respect group rules)."
+      },
+      "casino": {
+        "title": "Real-world & local networks",
+        "body": "Partner with local betting shops, sports bars, or influencers who already talk to gamblers. Print QR codes to your link. Word-of-mouth in trusted circles converts extremely well."
+      },
+      "unique": {
+        "title": "Unique angles",
+        "body": "• Sports tipster pages with \"play here\" CTA\n• Comparison blogs (best bonuses, fast payouts)\n• Language-specific landing pages\n• Seasonal campaigns (World Cup, major fights)\n• Recruit other affiliates — earn 10% of their commission forever"
+      }
+    },
+    "changePassword": {
+      "title": "Change password",
+      "subtitle": "You must set a new password before using the dashboard.",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "submit": "Update password",
+      "success": "Password updated",
+      "error": "Could not update password",
+      "mismatch": "Passwords do not match"
+    }
+  },
+
+  "validation": {
+    "required": "This field is required",
+    "passwordMismatch": "Passwords do not match"
+  }
+}
