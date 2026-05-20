@@ -13,6 +13,9 @@
   --cx-text-body: #cbd5e1;
   --cx-text-heading: #f0f9ff;
   --cx-glass-border: rgba(56, 189, 248, 0.22);
+  --cx-surface-border: rgba(56, 189, 248, 0.42);
+  --cx-surface-bg: linear-gradient(165deg, #1e2f52 0%, #17243f 50%, #131d34 100%);
+  --cx-surface-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
   --cx-button-grad-from: #2563eb;
   --cx-button-grad-mid: #6366f1;
   --cx-button-grad-to: #06b6d4;
@@ -40,10 +43,10 @@ html, body {
 
 body {
   background:
-    radial-gradient(ellipse 1400px 900px at 15% -10%, rgba(56, 189, 248, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 1000px 800px at 95% 5%, rgba(139, 92, 246, 0.16) 0%, transparent 50%),
-    radial-gradient(ellipse 800px 600px at 50% 100%, rgba(37, 99, 235, 0.2) 0%, transparent 55%),
-    linear-gradient(180deg, #030712 0%, #0b1120 40%, #0f172a 100%);
+    radial-gradient(ellipse 1400px 900px at 15% -10%, rgba(56, 189, 248, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 1000px 800px at 95% 5%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 800px 600px at 50% 100%, rgba(37, 99, 235, 0.14) 0%, transparent 55%),
+    linear-gradient(180deg, #020510 0%, #060d18 45%, #0a1222 100%);
   background-attachment: fixed;
 }
 
@@ -85,10 +88,11 @@ button { font-family: inherit; cursor: pointer; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(10, 15, 28, 0.85);
+  background: linear-gradient(180deg, rgba(20, 31, 56, 0.97) 0%, rgba(16, 24, 44, 0.95) 100%);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--cx-glass-border);
+  border-bottom: 1px solid var(--cx-surface-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 .cx-header__inner {
@@ -158,8 +162,9 @@ button { font-family: inherit; cursor: pointer; }
 
 .cx-lang-select {
   appearance: none;
-  background: rgba(10, 15, 28, 0.85) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
-  border: 1px solid var(--cx-glass-border);
+  background: #151f36 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
+  border: 1px solid var(--cx-surface-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   color: var(--cx-text-heading);
   font-size: 13px;
@@ -253,11 +258,11 @@ button { font-family: inherit; cursor: pointer; }
    ========================================================================== */
 
 .cx-card {
-  background: linear-gradient(160deg, rgba(15, 23, 42, 0.85), rgba(10, 15, 28, 0.85));
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 16px;
   padding: 28px;
-  backdrop-filter: blur(10px);
+  box-shadow: var(--cx-surface-shadow);
 }
 
 .cx-card--center { text-align: center; }
@@ -378,13 +383,18 @@ button { font-family: inherit; cursor: pointer; }
 /* Step card */
 .cx-step {
   position: relative;
-  background: linear-gradient(160deg, rgba(15, 23, 42, 0.85), rgba(10, 15, 28, 0.85));
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 16px;
   padding: 32px 26px;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  box-shadow: var(--cx-surface-shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.cx-step:hover { transform: translateY(-4px); border-color: rgba(56, 189, 248, 0.45); }
+.cx-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(56, 189, 248, 0.15) inset;
+}
 
 .cx-step__number {
   position: absolute;
@@ -408,16 +418,21 @@ button { font-family: inherit; cursor: pointer; }
 
 /* Benefit tile */
 .cx-benefit {
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 14px;
   padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  box-shadow: var(--cx-surface-shadow);
   transition: all 0.25s ease;
 }
-.cx-benefit:hover { transform: translateY(-2px); border-color: rgba(56, 189, 248, 0.45); }
+.cx-benefit:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+}
 .cx-benefit__icon {
   width: 40px;
   height: 40px;
@@ -435,10 +450,11 @@ button { font-family: inherit; cursor: pointer; }
 /* Stats */
 .cx-stat {
   text-align: center;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 14px;
   padding: 28px 16px;
+  box-shadow: var(--cx-surface-shadow);
 }
 .cx-stat__value {
   font-size: clamp(28px, 3vw, 38px);
@@ -454,10 +470,11 @@ button { font-family: inherit; cursor: pointer; }
 /* Final CTA */
 .cx-cta-banner {
   text-align: center;
-  background: linear-gradient(120deg, rgba(37, 99, 235, 0.18), rgba(139, 92, 246, 0.18), rgba(56, 189, 248, 0.18));
-  border: 1px solid var(--cx-glass-border);
+  background: linear-gradient(135deg, #1a3058 0%, #1e2a4a 40%, #1a2744 100%);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 22px;
   padding: 60px 24px;
+  box-shadow: var(--cx-surface-shadow), 0 0 60px rgba(37, 99, 235, 0.12);
 }
 .cx-cta-banner h2 { margin-bottom: 12px; font-size: clamp(26px, 3vw, 36px); }
 .cx-cta-banner p { color: var(--cx-text-body); margin-bottom: 28px; }
@@ -477,11 +494,11 @@ button { font-family: inherit; cursor: pointer; }
 .cx-auth-card {
   width: 100%;
   max-width: 480px;
-  background: linear-gradient(160deg, rgba(15, 23, 42, 0.88), rgba(10, 15, 28, 0.92));
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 18px;
   padding: 36px;
-  backdrop-filter: blur(12px);
+  box-shadow: var(--cx-surface-shadow);
 }
 .cx-auth-card--wide { max-width: 720px; }
 
@@ -517,8 +534,8 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--cx-text-body);
 }
 .cx-field__input {
-  background: rgba(10, 15, 28, 0.6);
-  border: 1px solid var(--cx-glass-border);
+  background: rgba(8, 12, 22, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: 10px;
   color: var(--cx-text-heading);
   font-size: 14px;
@@ -558,25 +575,26 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
   display: flex;
   gap: 10px;
   align-items: flex-start;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 .cx-alert--info {
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: linear-gradient(135deg, #1a3050 0%, #152540 100%);
+  border: 1px solid rgba(56, 189, 248, 0.45);
   color: var(--cx-text-heading);
 }
 .cx-alert--warn {
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: linear-gradient(135deg, #2a2418 0%, #1f1a12 100%);
+  border: 1px solid rgba(245, 158, 11, 0.45);
   color: #fbbf24;
 }
 .cx-alert--err {
-  background: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: linear-gradient(135deg, #2a1818 0%, #1f1212 100%);
+  border: 1px solid rgba(239, 68, 68, 0.5);
   color: #fca5a5;
 }
 .cx-alert--ok {
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #142a22 0%, #121f18 100%);
+  border: 1px solid rgba(16, 185, 129, 0.45);
   color: #6ee7b7;
 }
 .cx-alert b { color: inherit; }
@@ -599,8 +617,9 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 .cx-faq-tab {
   padding: 8px 16px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid var(--cx-glass-border);
+  background: #151f36;
+  border: 1px solid var(--cx-surface-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   color: var(--cx-text-body);
   font-size: 13px;
   font-weight: 500;
@@ -615,14 +634,18 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 }
 
 .cx-faq-item {
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 12px;
   margin-bottom: 12px;
   overflow: hidden;
-  transition: border-color 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.cx-faq-item--open { border-color: rgba(56, 189, 248, 0.45); }
+.cx-faq-item--open {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+}
 
 .cx-faq-item__q {
   padding: 18px 22px;
@@ -715,8 +738,9 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 .cx-dash__sidebar {
   width: 260px;
   flex-shrink: 0;
-  background: rgba(10, 15, 28, 0.95);
-  border-right: 1px solid var(--cx-glass-border);
+  background: linear-gradient(180deg, #141f38 0%, #10182c 100%);
+  border-right: 1px solid var(--cx-surface-border);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
@@ -825,9 +849,10 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
   justify-content: space-between;
   gap: 12px;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--cx-glass-border);
-  background: rgba(10, 15, 28, 0.6);
+  border-bottom: 1px solid var(--cx-surface-border);
+  background: linear-gradient(180deg, rgba(20, 31, 56, 0.95) 0%, rgba(16, 24, 44, 0.9) 100%);
   backdrop-filter: blur(10px);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   z-index: 40;
@@ -911,8 +936,9 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 .cx-period__btn {
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid var(--cx-glass-border);
-  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--cx-surface-border);
+  background: #151f36;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   color: var(--cx-text-body);
   font-size: 12px;
   font-weight: 600;
@@ -938,14 +964,16 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 }
 
 .cx-kpi {
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 12px;
   padding: 16px;
+  box-shadow: var(--cx-surface-shadow);
 }
 .cx-kpi--highlight {
-  border-color: rgba(56, 189, 248, 0.45);
-  background: linear-gradient(160deg, rgba(37, 99, 235, 0.15), rgba(10, 15, 28, 0.9));
+  border-color: rgba(56, 189, 248, 0.55);
+  background: linear-gradient(165deg, #234878 0%, #1a3050 50%, #17243f 100%);
+  box-shadow: var(--cx-surface-shadow), 0 0 24px rgba(37, 99, 235, 0.15);
 }
 .cx-kpi__label {
   display: block;
@@ -981,8 +1009,8 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 }
 .cx-copy__input {
   flex: 1;
-  background: rgba(10, 15, 28, 0.6);
-  border: 1px solid var(--cx-glass-border);
+  background: rgba(8, 12, 22, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 8px;
   color: var(--cx-text-heading);
   font-size: 13px;
@@ -990,10 +1018,11 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 }
 
 .cx-table-wrap {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--cx-glass-border);
+  background: var(--cx-surface-bg);
+  border: 1px solid var(--cx-surface-border);
   border-radius: 14px;
   overflow-x: auto;
+  box-shadow: var(--cx-surface-shadow);
 }
 .cx-table {
   width: 100%;
@@ -1065,7 +1094,8 @@ textarea.cx-field__input { min-height: 130px; resize: vertical; }
 
   .cx-dash--menu-open .cx-dash__sidebar {
     transform: translateX(0);
-    box-shadow: 8px 0 32px rgba(0, 0, 0, 0.45);
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.55);
+    border-right: 1px solid var(--cx-surface-border);
   }
 
   .cx-dash--menu-open .cx-dash__backdrop {
