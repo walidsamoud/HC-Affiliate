@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { register } from "../../../_services/auth";
+import CountrySelect from "../../../components/CountrySelect";
 
 export default function JoinPage() {
   return (
@@ -57,7 +58,7 @@ function JoinForm() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.name || !form.username || !form.email || !form.phone || !form.password) {
+    if (!form.name || !form.username || !form.email || !form.phone || !form.country || !form.password) {
       setError(t("validation.required"));
       return;
     }
@@ -149,8 +150,13 @@ function JoinForm() {
               <input className="cx-field__input" name="phone" value={form.phone} onChange={onChange} placeholder="+1234567890" />
             </div>
             <div className="cx-field">
-              <label className="cx-field__label">{t("join.country")}</label>
-              <input className="cx-field__input" name="country" value={form.country} onChange={onChange} placeholder="TR / US / …" />
+              <CountrySelect
+                label={t("join.country")}
+                value={form.country}
+                onChange={(code) => setForm((prev) => ({ ...prev, country: code }))}
+                placeholder={t("join.countrySearch")}
+                required
+              />
             </div>
             <div className="cx-field">
               <label className="cx-field__label">{t("join.password")}</label>

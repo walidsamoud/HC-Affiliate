@@ -58,6 +58,7 @@
     "email": "E-posta adresi",
     "phone": "Telefon numarası (ülke kodu ile)",
     "country": "Ülke",
+    "countrySearch": "Ülke ara…",
     "password": "Parola",
     "passwordConfirm": "Parolayı onayla",
     "referralCode": "Yönlendirme kodu (isteğe bağlı)",

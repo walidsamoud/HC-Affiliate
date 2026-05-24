@@ -61,6 +61,7 @@
     "email": "Email address",
     "phone": "Phone number (with country code)",
     "country": "Country",
+    "countrySearch": "Search country…",
     "password": "Password",
     "passwordConfirm": "Confirm password",
     "referralCode": "Referral code (optional)",
