@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { toast } from "react-toastify";
 import PeriodFilter from "../../../components/dashboard/PeriodFilter";
 import CopyField from "../../../components/dashboard/CopyField";
 import { getStats } from "../../../_services/dashboard";
-import { formatEur, formatDate } from "../../../lib/format";
+import { formatEur, formatDate, apiErrorMessage } from "../../../lib/format";
 import themeConfig from "../../../theme.config";
 
 export default function DashboardHomePage() {
@@ -14,16 +15,23 @@ export default function DashboardHomePage() {
   const [period, setPeriod] = useState("month");
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
+    setError(null);
     getStats(period, locale)
       .then((data) => {
         if (!cancelled) setStats(data);
       })
-      .catch(() => {
-        if (!cancelled) setStats(null);
+      .catch((err) => {
+        if (!cancelled) {
+          setStats(null);
+          const msg = apiErrorMessage(err);
+          setError(msg);
+          toast.error(msg);
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -32,6 +40,9 @@ export default function DashboardHomePage() {
       cancelled = true;
     };
   }, [period, locale]);
+
+  const parentRate = stats?.commission_percent ?? themeConfig.program.playerCommissionPercent;
+  const maxSubAssign = stats?.max_sub_commission_percent ?? parentRate;
 
   const kpis = stats
     ? [
@@ -58,6 +69,8 @@ export default function DashboardHomePage() {
 
       {loading ? (
         <div className="cx-dash-loading"><span className="cx-spinner" style={{ width: 28, height: 28, borderWidth: 3 }} /></div>
+      ) : error && !stats ? (
+        <div className="cx-alert cx-alert--err">{error}</div>
       ) : (
         <>
           <div className="cx-kpi-grid">
@@ -78,14 +91,16 @@ export default function DashboardHomePage() {
           <div className="cx-dash-grid-2">
             <section className="cx-card">
               <h2 className="cx-card__title">{t("guide.playersTitle")}</h2>
-              <p className="cx-card__desc">{t("guide.playersDesc", { percent: stats?.commission_percent ?? themeConfig.program.playerCommissionPercent })}</p>
+              <p className="cx-card__desc">{t("guide.playersDesc", { percent: parentRate })}</p>
               <CopyField label={t("referralCode")} value={stats?.referral_code} />
               <CopyField label={t("playerLink")} value={stats?.players_affiliation_url} />
             </section>
 
             <section className="cx-card">
               <h2 className="cx-card__title">{t("guide.partnersTitle")}</h2>
-              <p className="cx-card__desc">{t("guide.partnersDesc", { percent: stats?.sub_commission_percent ?? themeConfig.program.subAffiliatorCommissionPercent })}</p>
+              <p className="cx-card__desc">
+                {t("guide.partnersDesc", { parent: parentRate, max: maxSubAssign })}
+              </p>
               <CopyField label={t("referralCode")} value={stats?.referral_code} />
               <CopyField label={t("partnerLink")} value={stats?.partners_affiliation_url} />
             </section>

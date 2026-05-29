@@ -190,7 +190,7 @@
       "playersTitle": "Affiliate players",
       "playersDesc": "Share your referral code or player link. You earn {percent}% of each referred player's monthly GGR (bets minus wins), converted to EUR.",
       "partnersTitle": "Affiliate partners",
-      "partnersDesc": "Share the same code on the partner registration page. You earn {percent}% of each sub-partner's commission from their network."
+      "partnersDesc": "Recruit sub-partners with your partner link. You assign each sub-partner a rate from 0% to {max}% (your rate is {parent}%). You keep the difference: if your rate is 40% and you assign 10%, you earn 30% on their players' GGR and they earn 10%."
     },
     "nav": {
       "home": "Home",
@@ -215,7 +215,7 @@
     },
     "partners": {
       "title": "Sub-partners",
-      "subtitle": "Partners you recruited into the program",
+      "subtitle": "Set each sub-partner's commission between 0% and {max}% (your admin-approved rate). You earn the remainder on their network.",
       "create": "Create sub-partner",
       "createTitle": "New sub-partner account",
       "submit": "Create account",
@@ -231,7 +231,13 @@
       "status": "Status",
       "players": "Players",
       "revenue": "Their revenue",
-      "commission": "Your commission",
+      "commission": "Your override",
+      "subRate": "Sub rate",
+      "youKeep": "You keep",
+      "subEarned": "Sub earned",
+      "editRate": "Edit rate",
+      "save": "Save",
+      "rateUpdated": "Commission rate updated",
       "joined": "Joined"
     },
     "withdrawals": {

@@ -3,23 +3,37 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
-import { getSubAffiliators, createSubAffiliator } from "../../../../_services/dashboard";
+import { getSubAffiliators, createSubAffiliator, updateSubAffiliator } from "../../../../_services/dashboard";
 import { formatEur, formatDate, apiErrorMessage } from "../../../../lib/format";
 
 export default function PartnersPage() {
   const t = useTranslations("dashboard.partners");
   const [page, setPage] = useState(1);
-  const [result, setResult] = useState({ data: [], total: 0, last_page: 1 });
+  const [result, setResult] = useState({ data: [], total: 0, last_page: 1, parent_commission_percent: 40 });
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ name: "", username: "", email: "", phone: "" });
+  const [form, setForm] = useState({ name: "", username: "", email: "", phone: "", commission_percent: "10" });
   const [submitting, setSubmitting] = useState(false);
   const [created, setCreated] = useState(null);
+  const [editingId, setEditingId] = useState(null);
+  const [editRate, setEditRate] = useState("");
+  const [savingId, setSavingId] = useState(null);
+
+  const maxRate = Number(result.parent_commission_percent ?? 40);
 
   const load = () => {
     setLoading(true);
     getSubAffiliators({ period: "all", page })
-      .then(setResult)
+      .then((res) => {
+        setResult(res);
+        if (!showForm) {
+          setForm((f) => ({
+            ...f,
+            commission_percent: String(Math.min(Number(f.commission_percent) || 10, res.parent_commission_percent ?? 40)),
+          }));
+        }
+      })
+      .catch((err) => toast.error(apiErrorMessage(err)))
       .finally(() => setLoading(false));
   };
 
@@ -31,10 +45,13 @@ export default function PartnersPage() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const data = await createSubAffiliator(form);
+      const data = await createSubAffiliator({
+        ...form,
+        commission_percent: Number(form.commission_percent),
+      });
       setCreated(data);
       setShowForm(false);
-      setForm({ name: "", username: "", email: "", phone: "" });
+      setForm({ name: "", username: "", email: "", phone: "", commission_percent: "10" });
       toast.success(t("created"));
       load();
     } catch (err) {
@@ -44,12 +61,31 @@ export default function PartnersPage() {
     }
   };
 
+  const startEdit = (row) => {
+    setEditingId(row.id);
+    setEditRate(String(row.commission_percent ?? 0));
+  };
+
+  const saveEdit = async (id) => {
+    setSavingId(id);
+    try {
+      await updateSubAffiliator(id, { commission_percent: Number(editRate) });
+      toast.success(t("rateUpdated"));
+      setEditingId(null);
+      load();
+    } catch (err) {
+      toast.error(apiErrorMessage(err));
+    } finally {
+      setSavingId(null);
+    }
+  };
+
   return (
     <div className="cx-dash-page">
       <div className="cx-dash-page__head">
         <div>
           <h1>{t("title")}</h1>
-          <p className="cx-text-muted">{t("subtitle")}</p>
+          <p className="cx-text-muted">{t("subtitle", { max: maxRate })}</p>
         </div>
         <button type="button" className="cx-btn cx-btn--primary" onClick={() => setShowForm((v) => !v)}>
           {t("create")}
@@ -62,6 +98,7 @@ export default function PartnersPage() {
           <p>{t("username")}: <code>{created.username}</code></p>
           <p>{t("tempPassword")}: <code>{created.temporary_password}</code></p>
           <p>{t("referral")}: <code>{created.referral_code}</code></p>
+          <p>{t("subRate")}: <code>{created.commission_percent}%</code> ({t("youKeep")}: {created.parent_override_percent}%)</p>
         </div>
       )}
 
@@ -85,6 +122,22 @@ export default function PartnersPage() {
               <label className="cx-field__label">{t("phone")}</label>
               <input className="cx-field__input" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
             </div>
+            <div className="cx-field">
+              <label className="cx-field__label">{t("subRate")} (0–{maxRate}%)</label>
+              <input
+                className="cx-field__input"
+                type="number"
+                min={0}
+                max={maxRate}
+                step={0.01}
+                value={form.commission_percent}
+                onChange={(e) => setForm({ ...form, commission_percent: e.target.value })}
+                required
+              />
+              <span className="cx-text-muted" style={{ fontSize: 12 }}>
+                {t("youKeep")}: {Math.max(0, maxRate - Number(form.commission_percent || 0)).toFixed(2)}%
+              </span>
+            </div>
           </div>
           <button type="submit" className="cx-btn cx-btn--primary" disabled={submitting}>
             {submitting ? "…" : t("submit")}
@@ -102,22 +155,58 @@ export default function PartnersPage() {
             <thead>
               <tr>
                 <th>{t("name")}</th>
+                <th>{t("subRate")}</th>
+                <th>{t("youKeep")}</th>
                 <th>{t("status")}</th>
                 <th>{t("players")}</th>
-                <th>{t("revenue")}</th>
+                <th>{t("subEarned")}</th>
                 <th>{t("commission")}</th>
                 <th>{t("joined")}</th>
+                <th />
               </tr>
             </thead>
             <tbody>
               {result.data.map((row) => (
                 <tr key={row.id}>
                   <td><strong>{row.name}</strong><br /><span className="cx-text-muted" style={{ fontSize: 12 }}>@{row.username}</span></td>
+                  <td>
+                    {editingId === row.id ? (
+                      <input
+                        className="cx-field__input"
+                        type="number"
+                        min={0}
+                        max={maxRate}
+                        step={0.01}
+                        value={editRate}
+                        onChange={(e) => setEditRate(e.target.value)}
+                        style={{ width: 72 }}
+                      />
+                    ) : (
+                      <>{row.commission_percent}%</>
+                    )}
+                  </td>
+                  <td>{row.parent_override_percent ?? 0}%</td>
                   <td><span className={`cx-badge cx-badge--${row.status}`}>{row.status}</span></td>
                   <td>{row.players_count}</td>
-                  <td>{formatEur(row.their_revenue_eur)}</td>
+                  <td>{formatEur(row.sub_commission_eur ?? row.their_revenue_eur)}</td>
                   <td><strong>{formatEur(row.my_commission_eur)}</strong></td>
                   <td>{formatDate(row.created_at)}</td>
+                  <td>
+                    {editingId === row.id ? (
+                      <button
+                        type="button"
+                        className="cx-btn cx-btn--ghost"
+                        disabled={savingId === row.id}
+                        onClick={() => saveEdit(row.id)}
+                      >
+                        {savingId === row.id ? "…" : t("save")}
+                      </button>
+                    ) : (
+                      <button type="button" className="cx-btn cx-btn--ghost" onClick={() => startEdit(row)}>
+                        {t("editRate")}
+                      </button>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>

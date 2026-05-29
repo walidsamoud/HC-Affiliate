@@ -20,6 +20,11 @@ export async function createSubAffiliator(payload) {
   return res?.data?.data || res?.data || {};
 }
 
+export async function updateSubAffiliator(id, payload) {
+  const res = await api.patch(`/api/affiliate/sub-affiliators/${id}`, payload);
+  return res?.data?.data || res?.data || {};
+}
+
 export async function getWithdrawals({ page = 1, per_page = 25 } = {}) {
   const res = await api.get("/api/affiliate/withdrawals", { params: { page, per_page } });
   return res?.data?.data || { data: [], summary: {}, total: 0, current_page: 1, last_page: 1 };
