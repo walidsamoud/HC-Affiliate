@@ -98,7 +98,7 @@ export default function PartnersPage() {
           <p>{t("username")}: <code>{created.username}</code></p>
           <p>{t("tempPassword")}: <code>{created.temporary_password}</code></p>
           <p>{t("referral")}: <code>{created.referral_code}</code></p>
-          <p>{t("subRate")}: <code>{created.commission_percent}%</code> ({t("youKeep")}: {created.parent_override_percent}%)</p>
+          <p>{t("subRate")}: <code>{created.commission_percent}%</code> ({t("youKeep")}: <span className="cx-amount cx-amount--earn">{created.parent_override_percent}%</span>)</p>
         </div>
       )}
 
@@ -134,8 +134,11 @@ export default function PartnersPage() {
                 onChange={(e) => setForm({ ...form, commission_percent: e.target.value })}
                 required
               />
-              <span className="cx-text-muted" style={{ fontSize: 12 }}>
-                {t("youKeep")}: {Math.max(0, maxRate - Number(form.commission_percent || 0)).toFixed(2)}%
+              <span style={{ fontSize: 12 }}>
+                {t("youKeep")}:{" "}
+                <span className="cx-amount cx-amount--earn">
+                  {Math.max(0, maxRate - Number(form.commission_percent || 0)).toFixed(2)}%
+                </span>
               </span>
             </div>
           </div>
@@ -185,11 +188,11 @@ export default function PartnersPage() {
                       <>{row.commission_percent}%</>
                     )}
                   </td>
-                  <td>{row.parent_override_percent ?? 0}%</td>
+                  <td><span className="cx-amount cx-amount--earn">{row.parent_override_percent ?? 0}%</span></td>
                   <td><span className={`cx-badge cx-badge--${row.status}`}>{row.status}</span></td>
                   <td>{row.players_count}</td>
                   <td>{formatEur(row.sub_commission_eur ?? row.their_revenue_eur)}</td>
-                  <td><strong>{formatEur(row.my_commission_eur)}</strong></td>
+                  <td><strong className="cx-amount cx-amount--earn">{formatEur(row.my_commission_eur)}</strong></td>
                   <td>{formatDate(row.created_at)}</td>
                   <td>
                     {editingId === row.id ? (

@@ -178,6 +178,7 @@
       "playersCommission": "Players commission",
       "subCommission": "Sub-partners commission",
       "totalCommission": "Total commission",
+      "totalCommissionHint": "इस अवधि की आपकी कमाई — खिलाड़ी + सब-पार्टनर ओवरराइड",
       "paid": "Total paid",
       "pending": "Pending"
     },
@@ -243,27 +244,24 @@
       "status": "Status"
     },
     "ideas": {
-      "title": "Promotion ideas",
-      "subtitle": "Proven ways to grow your affiliate income",
-      "tiktok": {
-        "title": "TikTok & short video",
-        "body": "Post win highlights, bonus tips, and \"how to sign up\" clips with your link in bio. Use trending sounds and local language. Post daily — consistency beats one viral hit."
+      "title": "प्रमोशन आइडिया",
+      "subtitle": "असली उदाहरण, फायदे और नुकसान, और कमाई शुरू होने के समय के साथ पूरी गाइड",
+      "intro": "अपने अनुकूल एक चैनल चुनें और दूसरा जोड़ने से पहले उसी में गहराई तक जाएँ। किसी भी आइडिया पर “और दिखाएँ” दबाएँ ताकि चरण-दर-चरण गाइड, असली उदाहरण और ईमानदार फायदे/नुकसान देख सकें। इनमें से अधिकांश में आपके समय के अलावा कोई खर्च नहीं है।",
+      "footnote": "जिम्मेदारी से प्रचार करें: केवल वयस्कों (18+) को लक्षित करें, कभी भी गारंटीड जीत का वादा न करें, और हर प्लेटफ़ॉर्म के नियमों और हमारी पार्टनर शर्तों का पालन करें।",
+      "showMore": "और दिखाएँ",
+      "showLess": "कम दिखाएँ",
+      "meta": {
+        "difficulty": "कठिनाई",
+        "budget": "बजट",
+        "timeToEarn": "कमाई का समय",
+        "potential": "संभावना"
       },
-      "stream": {
-        "title": "Streaming (Twitch, Kick, YouTube)",
-        "body": "Run a dedicated casino stream segment with your referral link in panel and chat commands. Offer viewers exclusive deposit bonuses when available. Engage live — answer questions about signup."
-      },
-      "telegram": {
-        "title": "Telegram & Discord",
-        "body": "Build a community channel with daily picks, promo codes, and your signup link pinned. Use bots for auto-replies with your ref link. Cross-post to WhatsApp groups carefully (respect group rules)."
-      },
-      "casino": {
-        "title": "Real-world & local networks",
-        "body": "Partner with local betting shops, sports bars, or influencers who already talk to gamblers. Print QR codes to your link. Word-of-mouth in trusted circles converts extremely well."
-      },
-      "unique": {
-        "title": "Unique angles",
-        "body": "• Sports tipster pages with \"play here\" CTA\n• Comparison blogs (best bonuses, fast payouts)\n• Language-specific landing pages\n• Seasonal campaigns (World Cup, major fights)\n• Recruit other affiliates — earn 10% of their commission forever"
+      "sections": {
+        "howTo": "कैसे करें",
+        "examples": "असली उदाहरण",
+        "pros": "फायदे",
+        "cons": "नुकसान",
+        "guidance": "मार्गदर्शन"
       }
     },
     "changePassword": {

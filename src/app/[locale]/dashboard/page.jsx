@@ -49,9 +49,8 @@ export default function DashboardHomePage() {
         { label: t("kpi.signups"), value: stats.signups ?? 0 },
         { label: t("kpi.deposits"), value: formatEur(stats.deposits_eur) },
         { label: t("kpi.withdrawals"), value: formatEur(stats.withdrawals_eur) },
-        { label: t("kpi.playersCommission"), value: formatEur(stats.players_commission_eur) },
-        { label: t("kpi.subCommission"), value: formatEur(stats.sub_commission_eur) },
-        { label: t("kpi.totalCommission"), value: formatEur(stats.total_commission_eur), highlight: true },
+        { label: t("kpi.playersCommission"), value: formatEur(stats.players_commission_eur), earn: true },
+        { label: t("kpi.subCommission"), value: formatEur(stats.sub_commission_eur), earn: true },
         { label: t("kpi.paid"), value: formatEur(stats.paid_eur) },
         { label: t("kpi.pending"), value: formatEur(stats.pending_eur) },
       ]
@@ -73,11 +72,33 @@ export default function DashboardHomePage() {
         <div className="cx-alert cx-alert--err">{error}</div>
       ) : (
         <>
+          <div className="cx-commission-hero">
+            <div className="cx-commission-hero__main">
+              <span className="cx-commission-hero__label">{t("kpi.totalCommission")}</span>
+              <span className="cx-commission-hero__value">{formatEur(stats?.total_commission_eur)}</span>
+              <span className="cx-commission-hero__hint">{t("kpi.totalCommissionHint")}</span>
+            </div>
+            <div className="cx-commission-hero__breakdown">
+              <div className="cx-commission-hero__item">
+                <span className="cx-commission-hero__item-label">{t("kpi.playersCommission")}</span>
+                <span className="cx-amount cx-amount--earn">{formatEur(stats?.players_commission_eur)}</span>
+              </div>
+              <div className="cx-commission-hero__item">
+                <span className="cx-commission-hero__item-label">{t("kpi.subCommission")}</span>
+                <span className="cx-amount cx-amount--earn">{formatEur(stats?.sub_commission_eur)}</span>
+              </div>
+              <div className="cx-commission-hero__item">
+                <span className="cx-commission-hero__item-label">{t("kpi.pending")}</span>
+                <span className="cx-amount cx-amount--earn">{formatEur(stats?.pending_eur)}</span>
+              </div>
+            </div>
+          </div>
+
           <div className="cx-kpi-grid">
             {kpis.map((k) => (
-              <div key={k.label} className={`cx-kpi ${k.highlight ? "cx-kpi--highlight" : ""}`}>
+              <div key={k.label} className="cx-kpi">
                 <span className="cx-kpi__label">{k.label}</span>
-                <span className="cx-kpi__value">{k.value}</span>
+                <span className={`cx-kpi__value ${k.earn ? "cx-amount--earn" : ""}`}>{k.value}</span>
               </div>
             ))}
           </div>

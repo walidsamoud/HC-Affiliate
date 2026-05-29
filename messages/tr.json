@@ -179,6 +179,7 @@
       "playersCommission": "Players commission",
       "subCommission": "Sub-partners commission",
       "totalCommission": "Total commission",
+      "totalCommissionHint": "Bu dönemdeki kazancınız — oyuncular + alt ortak farkı",
       "paid": "Total paid",
       "pending": "Pending"
     },
@@ -250,27 +251,24 @@
       "status": "Status"
     },
     "ideas": {
-      "title": "Promotion ideas",
-      "subtitle": "Proven ways to grow your affiliate income",
-      "tiktok": {
-        "title": "TikTok & short video",
-        "body": "Post win highlights, bonus tips, and \"how to sign up\" clips with your link in bio. Use trending sounds and local language. Post daily — consistency beats one viral hit."
+      "title": "Tanıtım fikirleri",
+      "subtitle": "Gerçek örnekler, artı & eksiler ve kazanmaya başlama süresi içeren eksiksiz bir rehber",
+      "intro": "Size uyan bir kanal seçin ve ikinciyi eklemeden önce onda derinleşin. Adım adım rehber, gerçek örnekler ve dürüst artı/eksiler için herhangi bir fikirde “Daha fazla göster”e dokunun. Buradakilerin çoğu zamanınız dışında bir maliyet gerektirmez.",
+      "footnote": "Sorumlu tanıtım yapın: yalnızca yetişkinleri (18+) hedefleyin, asla garantili kazanç vaat etmeyin ve her platformun kurallarına ve Partner şartlarımıza uyun.",
+      "showMore": "Daha fazla göster",
+      "showLess": "Daha az göster",
+      "meta": {
+        "difficulty": "Zorluk",
+        "budget": "Bütçe",
+        "timeToEarn": "Kazanma süresi",
+        "potential": "Potansiyel"
       },
-      "stream": {
-        "title": "Streaming (Twitch, Kick, YouTube)",
-        "body": "Run a dedicated casino stream segment with your referral link in panel and chat commands. Offer viewers exclusive deposit bonuses when available. Engage live — answer questions about signup."
-      },
-      "telegram": {
-        "title": "Telegram & Discord",
-        "body": "Build a community channel with daily picks, promo codes, and your signup link pinned. Use bots for auto-replies with your ref link. Cross-post to WhatsApp groups carefully (respect group rules)."
-      },
-      "casino": {
-        "title": "Real-world & local networks",
-        "body": "Partner with local betting shops, sports bars, or influencers who already talk to gamblers. Print QR codes to your link. Word-of-mouth in trusted circles converts extremely well."
-      },
-      "unique": {
-        "title": "Unique angles",
-        "body": "• Sports tipster pages with \"play here\" CTA\n• Comparison blogs (best bonuses, fast payouts)\n• Language-specific landing pages\n• Seasonal campaigns (World Cup, major fights)\n• Recruit other affiliates — earn 10% of their commission forever"
+      "sections": {
+        "howTo": "Nasıl yapılır",
+        "examples": "Gerçek örnekler",
+        "pros": "Artılar",
+        "cons": "Eksiler",
+        "guidance": "Rehberlik"
       }
     },
     "changePassword": {

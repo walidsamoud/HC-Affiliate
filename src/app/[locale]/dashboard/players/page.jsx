@@ -60,7 +60,7 @@ export default function PlayersPage() {
                   <td>{formatEur(row.deposits_eur)}</td>
                   <td>{formatEur(row.withdrawals_eur)}</td>
                   <td>{row.ggr_player_currency} {row.currency}</td>
-                  <td><strong>{formatEur(row.commission_eur)}</strong></td>
+                  <td><strong className="cx-amount cx-amount--earn">{formatEur(row.commission_eur)}</strong></td>
                 </tr>
               ))}
             </tbody>
